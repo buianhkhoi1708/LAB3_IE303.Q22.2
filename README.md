@@ -1,1 +1,3 @@
-# LAB3_IE303.Q22.2-
+- Sử dụng Java Swing/JavaFX Thiết kế một website bán sản phẩm có bố cục như hình mẫu (8 điểm). 
+- Thêm tính năng click chọn một sản phẩm ở trong danh sách các sản phẩm ở phía bên phải sẽ thay đổi sản phẩm được hiển thị ở phía bên trái (1 điểm).
+- Thêm hiệu ứng thay đổi sản phẩm được hiển thị ở phía bên trái khi chọn vào một sản phẩm trong danh sách các sản phẩm ở phía bên phải (1 điểm).
