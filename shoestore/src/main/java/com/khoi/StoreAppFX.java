@@ -33,7 +33,9 @@ public class StoreAppFX extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-        List<Product> products = createSampleData();
+        MongoService mongoService = new MongoService();
+        mongoService.seedDataIfNeeded(); 
+        List<Product> products = mongoService.getAllProducts();
 
         BorderPane root = new BorderPane();
         root.setStyle("-fx-background-color: #ffffff;");
@@ -87,7 +89,6 @@ public class StoreAppFX extends Application {
         primaryStage.show();
     }
 
-    // PRODUCT MODEL 
 
     static class Product {
 
@@ -207,8 +208,6 @@ public class StoreAppFX extends Application {
         }
     }
 
-    // PRODUCT CARD
-
     class ProductCard extends VBox {
 
         private static final String DEFAULT_STYLE =
@@ -305,93 +304,5 @@ public class StoreAppFX extends Application {
         }
 
         private static final double auto = 5.0;
-    }
-
-    // SAMPLE DATA
-
-    private List<Product> createSampleData() {
-
-        List<Product> list = new ArrayList<>();
-
-        String exclusionFull =
-                "This product is excluded from all\n" +
-                "promotional discounts and offers.";
-
-        String exclusionShort =
-                "This product is excluded fr...";
-
-        list.add(new Product(
-                "4DFWD PULSE SHOES",
-                "Adidas",
-                exclusionFull,
-                exclusionShort,
-                "$160.00",
-                "img1.png"
-        ));
-
-        list.add(new Product(
-                "FORUM MID SHOES",
-                "Adidas",
-                exclusionFull,
-                exclusionShort,
-                "$100.00",
-                "img2.png"
-        ));
-
-        list.add(new Product(
-                "SUPERNOVA SHOES",
-                "Adidas",
-                "NMD City Stock 2",
-                "NMD City Stock 2",
-                "$150.00",
-                "img3.png"
-        ));
-
-        list.add(new Product(
-                "NMD City Stock 2",
-                "Adidas",
-                "NMD City Stock 2",
-                "NMD City Stock 2",
-                "$160.00",
-                "img4.png"
-        ));
-
-        list.add(new Product(
-                "4DFWD PULSE SHOES",
-                "Adidas",
-                "NMD City Stock 2",
-                "NMD City Stock 2",
-                "$160.00",
-                "img5.png"
-        ));
-
-        list.add(new Product(
-                "FORUM MID SHOES",
-                "Adidas",
-                exclusionFull,
-                exclusionShort,
-                "$120.00",
-                "img6.png"
-        ));
-
-        list.add(new Product(
-                "4DFWD PULSE SHOES",
-                "Adidas",
-                exclusionFull,
-                exclusionShort,
-                "$160.00",
-                "img1.png"
-        ));
-
-        list.add(new Product(
-                "FORUM MID SHOES",
-                "Adidas",
-                exclusionFull,
-                exclusionShort,
-                "$100.00",
-                "img2.png"
-        ));
-
-        return list;
     }
 }
